@@ -1,0 +1,11 @@
+Ciao {{ user.first_name|default:user.username }},
+
+grazie per esserti registrato su Dropship Bundles.
+
+Per completare l'attivazione del tuo account clicca sul link seguente:
+{{ activation_url }}
+
+Se non hai richiesto tu questa registrazione ignora questa email.
+
+A presto,
+Il team Dropship Bundles

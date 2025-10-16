@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="it">
+  <body style="font-family: Arial, sans-serif; background-color: #f8fafc; padding: 24px; color: #0f172a;">
+    <div style="max-width: 520px; margin: 0 auto; background: #ffffff; border-radius: 16px; padding: 32px; box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);">
+      <h1 style="font-size: 24px; margin-bottom: 16px;">Benvenuto su Dropship Bundles</h1>
+      <p style="margin-bottom: 16px;">Ciao {{ user.first_name|default:user.username }},</p>
+      <p style="margin-bottom: 16px;">Per completare l'attivazione del tuo account clicca sul pulsante qui sotto:</p>
+      <p style="text-align: center; margin: 24px 0;">
+        <a href="{{ activation_url }}" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #0f172a, #0ea5e9); color: #ffffff; text-decoration: none; border-radius: 999px; font-weight: bold;">Attiva il tuo account</a>
+      </p>
+      <p style="margin-bottom: 16px;">Oppure copia e incolla questo link nel tuo browser:</p>
+      <p style="word-break: break-all; color: #0369a1;">{{ activation_url }}</p>
+      <p>Se non hai richiesto tu questa registrazione ignora questa email.</p>
+      <p style="margin-top: 24px;">A presto,<br />Il team Dropship Bundles</p>
+    </div>
+  </body>
+</html>

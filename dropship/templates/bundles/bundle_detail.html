@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ bundle.name }} - Dropship Bundles{% endblock %}
+{% block content %}
+<div class="row g-5">
+  <div class="col-lg-6">
+    {% if bundle.hero_image_url %}
+    <img src="{{ bundle.hero_image_url }}" alt="{{ bundle.name }}" class="img-fluid rounded-4 shadow" />
+    {% else %}
+    <div class="bg-gradient rounded-4 p-5 text-white" style="background: linear-gradient(135deg, #0f172a, #0ea5e9);">
+      <h1 class="display-6">{{ bundle.name }}</h1>
+    </div>
+    {% endif %}
+  </div>
+  <div class="col-lg-6">
+    <h1 class="h2 mb-3">{{ bundle.name }}</h1>
+    <p class="text-secondary">{{ bundle.short_description }}</p>
+    <div class="d-flex align-items-center gap-3 mb-3">
+      <span class="badge badge-soft-primary">{{ bundle.items.count }} articoli</span>
+      <span class="fs-4 fw-bold text-primary">€ {{ bundle.price_eur }}</span>
+    </div>
+    <p>{{ bundle.description|linebreaks }}</p>
+    {% if user.is_authenticated %}
+    <a class="btn btn-primary btn-lg" href="mailto:ordini@dropshipbundles.example?subject=Richiesta%20{{ bundle.name }}">Richiedi questo bundle</a>
+    {% else %}
+    <a class="btn btn-outline-primary btn-lg" href="{% url 'signup' %}">Registrati per ordinare questo bundle</a>
+    {% endif %}
+  </div>
+</div>
+
+<section class="mt-5">
+  <h2 class="h3 mb-4">Cosa include il bundle</h2>
+  <div class="list-group shadow-sm">
+    {% for item in bundle.items.all %}
+    <a href="{{ item.product_url }}" class="list-group-item list-group-item-action d-flex gap-3 align-items-start" target="_blank" rel="noopener">
+      {% if item.thumbnail_url %}
+      <img src="{{ item.thumbnail_url }}" class="rounded" width="72" height="72" alt="{{ item.title }}" />
+      {% endif %}
+      <div class="flex-grow-1">
+        <div class="d-flex justify-content-between">
+          <h3 class="h5 mb-1">{{ item.title }}</h3>
+          <span class="fw-semibold text-primary">€ {{ item.price_eur }}</span>
+        </div>
+        <p class="mb-1 text-secondary">{{ item.description }}</p>
+        <small class="text-muted">Fonte: {{ item.source_name }}</small>
+      </div>
+    </a>
+    {% empty %}
+    <p class="list-group-item">Questo bundle non ha ancora articoli associati.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

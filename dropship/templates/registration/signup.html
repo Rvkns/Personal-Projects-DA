@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Crea un account - Dropship Bundles{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4 p-md-5">
+        <h1 class="h3 mb-4 text-center">Crea il tuo account</h1>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {% for field in form %}
+          {% if field.field.widget.input_type == "checkbox" %}
+          <div class="form-check mb-3">
+            {{ field }}
+            <label class="form-check-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {% if field.errors %}
+            <div class="text-danger small">{{ field.errors|striptags }}</div>
+            {% endif %}
+          </div>
+          {% else %}
+          <div class="mb-3">
+            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+            <div class="text-danger small">{{ field.errors|striptags }}</div>
+            {% endif %}
+            {% if field.help_text %}
+            <div class="form-text">{{ field.help_text }}</div>
+            {% endif %}
+          </div>
+          {% endif %}
+          {% endfor %}
+          <button class="btn btn-primary w-100 py-2" type="submit">Registrati</button>
+        </form>
+        <p class="text-center mt-3 mb-0">Hai già un account? <a href="{% url 'login' %}">Accedi qui</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

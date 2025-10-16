@@ -1,0 +1,62 @@
+[
+  {
+    "model": "bundles.bundle",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-01-01T10:00:00Z",
+      "updated_at": "2024-01-01T10:00:00Z",
+      "name": "Postazione Gaming Elite",
+      "slug": "postazione-gaming-elite",
+      "short_description": "Setup completo per gamer competitivi",
+      "description": "Un pacchetto selezionato di prodotti premium provenienti da marketplace diversi per creare una postazione da gaming completa.",
+      "hero_image_url": "https://images.unsplash.com/photo-1587202372775-98927cf688f0?auto=format&fit=crop&w=1200&q=80",
+      "price_eur": "1899.00",
+      "is_featured": true
+    }
+  },
+  {
+    "model": "bundles.bundleitem",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-01-01T10:05:00Z",
+      "updated_at": "2024-01-01T10:05:00Z",
+      "bundle": 1,
+      "title": "Monitor 27'' 165Hz",
+      "source_name": "Amazon",
+      "product_url": "https://www.amazon.it/",
+      "description": "Monitor QHD con refresh rate 165Hz, ideale per gaming competitivo.",
+      "price_eur": "349.00",
+      "thumbnail_url": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "bundles.bundleitem",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-01-01T10:06:00Z",
+      "updated_at": "2024-01-01T10:06:00Z",
+      "bundle": 1,
+      "title": "Sedia Ergonomica Gaming",
+      "source_name": "eBay",
+      "product_url": "https://www.ebay.it/",
+      "description": "Seduta con supporto lombare regolabile e design racing.",
+      "price_eur": "199.00",
+      "thumbnail_url": "https://images.unsplash.com/photo-1616628182509-41e59cd4f3c7?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "bundles.bundleitem",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-01-01T10:07:00Z",
+      "updated_at": "2024-01-01T10:07:00Z",
+      "bundle": 1,
+      "title": "Kit Periferiche RGB",
+      "source_name": "AliExpress",
+      "product_url": "https://www.aliexpress.com/",
+      "description": "Tastiera meccanica, mouse ad alta precisione e tappetino XXL.",
+      "price_eur": "129.00",
+      "thumbnail_url": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=400&q=80"
+    }
+  }
+]
